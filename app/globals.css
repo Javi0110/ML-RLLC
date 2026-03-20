@@ -1,0 +1,187 @@
+:root {
+  --bg: #070b17;
+  --bg-soft: #0f1930;
+  --card: rgba(17, 28, 53, 0.7);
+  --text: #f8f9ff;
+  --text-soft: #d6dcf5;
+  --accent: #7f9cff;
+  --accent-2: #57e5c1;
+  --danger: #ff8f8f;
+  --max: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle at 20% 20%, #1b2f63 0%, var(--bg) 40%),
+    radial-gradient(circle at 80% 20%, #0f5f5a 0%, transparent 30%), var(--bg);
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrap {
+  width: min(92%, var(--max));
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 3.5rem 0 2.5rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0.8rem 0;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  margin-top: 0;
+}
+
+.subtitle {
+  color: var(--text-soft);
+  max-width: 70ch;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 1.1rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.section {
+  padding: 1rem 0 2rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.btnPrimary {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #071023;
+}
+
+.btnGhost {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.langToggle {
+  position: sticky;
+  top: 0.8rem;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+}
+
+.langToggle button {
+  background: rgba(4, 8, 20, 0.75);
+}
+
+form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  margin-top: 0.35rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(7, 12, 26, 0.75);
+  color: var(--text);
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.small {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.ok {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.4rem 0 2.5rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 720px) {
+  html,
+  body {
+    font-size: 17px;
+  }
+}

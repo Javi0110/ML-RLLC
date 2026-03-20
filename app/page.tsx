@@ -1,0 +1,224 @@
+"use client";
+
+import { FormEvent, useMemo, useState } from "react";
+
+type Lang = "es" | "en";
+
+const content = {
+  es: {
+    badge: "BUFETE DE ABOGADO",
+    title: "Lcdo. Fernando L. Melendez Lopez",
+    subtitle:
+      "Abogado-Notario en Puerto Rico. Atencion clara, trato humano y procesos simples para todas las edades.",
+    areaTitle: "Servicios Legales",
+    areas: ["Bienes Raices", "Herencias", "Practica Civil", "Notaria"],
+    contactTitle: "Informacion de Contacto",
+    address:
+      "Urb. Santa Rosa Ave. Aguas Buenas 16-30 Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+    appointmentTitle: "Solicitar Cita",
+    appointmentText:
+      "Complete este formulario y nos comunicaremos con usted para confirmar su cita.",
+    labels: {
+      name: "Nombre completo",
+      phone: "Telefono",
+      email: "Correo electronico",
+      service: "Tipo de servicio",
+      date: "Fecha preferida",
+      message: "Mensaje",
+      submit: "Enviar solicitud"
+    },
+    quickActions: {
+      call: "Llamar ahora",
+      mail: "Enviar email"
+    },
+    success: "Solicitud enviada. Le contactaremos pronto.",
+    failure:
+      "No se pudo enviar la solicitud. Intente nuevamente o llame al 787-946-1810.",
+    footer: "Oficina legal en Bayamon, Puerto Rico."
+  },
+  en: {
+    badge: "LAW OFFICE",
+    title: "Atty. Fernando L. Melendez Lopez",
+    subtitle:
+      "Attorney-Notary in Puerto Rico. Clear guidance, human service, and simple processes for every age.",
+    areaTitle: "Legal Services",
+    areas: ["Real Estate", "Inheritance", "Civil Practice", "Notary"],
+    contactTitle: "Contact Information",
+    address:
+      "Urb. Santa Rosa Ave. Aguas Buenas 16-30 Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+    appointmentTitle: "Request an Appointment",
+    appointmentText:
+      "Complete this form and we will contact you to confirm your appointment.",
+    labels: {
+      name: "Full name",
+      phone: "Phone number",
+      email: "Email",
+      service: "Service type",
+      date: "Preferred date",
+      message: "Message",
+      submit: "Send request"
+    },
+    quickActions: {
+      call: "Call now",
+      mail: "Send email"
+    },
+    success: "Request sent. We will contact you soon.",
+    failure: "Could not send request. Please try again or call 787-946-1810.",
+    footer: "Law office in Bayamon, Puerto Rico."
+  }
+};
+
+export default function HomePage() {
+  const [lang, setLang] = useState<Lang>("es");
+  const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
+  const [loading, setLoading] = useState(false);
+  const t = useMemo(() => content[lang], [lang]);
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLoading(true);
+    setStatus("idle");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData.entries()))
+      });
+
+      if (!res.ok) {
+        throw new Error("Request failed");
+      }
+
+      setStatus("ok");
+      form.reset();
+    } catch {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main className="page">
+      <div className="wrap langToggle">
+        <button
+          className="btn btnGhost"
+          onClick={() => setLang((prev) => (prev === "es" ? "en" : "es"))}
+          aria-label="Change language"
+        >
+          {lang === "es" ? "English" : "Espanol"}
+        </button>
+      </div>
+
+      <section className="hero wrap">
+        <span className="pill">{t.badge}</span>
+        <h1>{t.title}</h1>
+        <p className="subtitle">{t.subtitle}</p>
+        <div className="ctaRow">
+          <a className="btn btnPrimary" href="tel:7879461810">
+            {t.quickActions.call}
+          </a>
+          <a className="btn btnGhost" href="mailto:bufetemlyr@outlook.com">
+            {t.quickActions.mail}
+          </a>
+        </div>
+      </section>
+
+      <section className="section wrap row">
+        <article className="card">
+          <h2>{t.areaTitle}</h2>
+          <ul>
+            {t.areas.map((area) => (
+              <li key={area}>{area}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="card">
+          <h2>{t.contactTitle}</h2>
+          <p>
+            <strong>Telefono:</strong> <a href="tel:7879461810">787-946-1810</a>
+          </p>
+          <p>
+            <strong>Email:</strong>{" "}
+            <a href="mailto:bufetemlyr@outlook.com">bufetemlyr@outlook.com</a>
+          </p>
+          <p className="small">{t.address}</p>
+        </article>
+      </section>
+
+      <section className="section wrap">
+        <article className="card">
+          <h2>{t.appointmentTitle}</h2>
+          <p className="small">{t.appointmentText}</p>
+
+          <form onSubmit={onSubmit}>
+            <label>
+              {t.labels.name}
+              <input name="name" required autoComplete="name" />
+            </label>
+
+            <label>
+              {t.labels.phone}
+              <input name="phone" required autoComplete="tel" />
+            </label>
+
+            <label>
+              {t.labels.email}
+              <input name="email" type="email" required autoComplete="email" />
+            </label>
+
+            <label>
+              {t.labels.service}
+              <select name="service" required defaultValue="">
+                <option value="" disabled>
+                  -
+                </option>
+                {t.areas.map((area) => (
+                  <option key={area} value={area}>
+                    {area}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            <label>
+              {t.labels.date}
+              <input name="preferredDate" type="date" />
+            </label>
+
+            <label>
+              {t.labels.message}
+              <textarea
+                name="message"
+                placeholder={
+                  lang === "es"
+                    ? "Describa brevemente su caso..."
+                    : "Briefly describe your case..."
+                }
+                required
+              />
+            </label>
+
+            <button className="btn btnPrimary" type="submit" disabled={loading}>
+              {loading ? "..." : t.labels.submit}
+            </button>
+          </form>
+
+          {status === "ok" && <p className="ok">{t.success}</p>}
+          {status === "error" && <p className="error">{t.failure}</p>}
+        </article>
+      </section>
+
+      <footer>
+        <div className="wrap">
+          <p>{t.footer}</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
