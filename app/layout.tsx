@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "MELENDEZ LOPEZ & ROBLES LLC",
   description:
-    "Bufete de Abogado y Notaria en Bayamon, Puerto Rico. Bienes Raices, Herencias y Practica Civil."
+    "Bufete de Abogados y Notarios en Bayamon, Puerto Rico. Bienes Raices, Herencias y Practica Civil."
 };
 
 export default function RootLayout({

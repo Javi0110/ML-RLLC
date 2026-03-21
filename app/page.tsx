@@ -6,10 +6,10 @@ type Lang = "es" | "en";
 
 const content = {
   es: {
-    badge: "BUFETE DE ABOGADO",
+    badge: "BUFETE DE ABOGADOS",
     title: "MELENDEZ LOPEZ & ROBLES LLC",
     subtitle:
-      "Abogado-Notario en Puerto Rico. Atencion clara, trato humano y procesos simples para todas las edades.",
+      "Abogados-Notarios en Puerto Rico. Atencion clara y procesos simples para todas las edades.",
     areaTitle: "Servicios Legales",
     areas: ["Bienes Raices", "Herencias", "Practica Civil", "Notaria"],
     contactTitle: "Informacion de Contacto",
