@@ -11,17 +11,17 @@ const content = {
     subtitle:
       "Abogados-Notarios en Puerto Rico. Litigio en casos de herencia, cobros de dinero, incumplimientos de contrato, controversias de colindancias y otros.",
     areaTitle: "Servicios Legales",
-    areas: ["Bienes Raices", "Herencias", "Practica Civil", "Notaria"],
-    contactTitle: "Informacion de Contacto",
+    areas: ["Bienes Raíces", "Herencias", "Práctica Civil", "Notaría"],
+    contactTitle: "Información de Contacto",
     address:
-      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamón, PR 00959 | P.O Box 55056 Bayamón PR 00960-4056",
     appointmentTitle: "Solicitar Cita",
     appointmentText:
       "Complete este formulario y nos comunicaremos con usted para confirmar su cita.",
     labels: {
       name: "Nombre completo",
-      phone: "Telefono",
-      email: "Correo electronico",
+      phone: "Teléfono",
+      email: "Correo electrónico",
       service: "Tipo de servicio",
       date: "Fecha preferida",
       message: "Mensaje",
@@ -34,7 +34,7 @@ const content = {
     success: "Solicitud enviada. Le contactaremos pronto.",
     failure:
       "No se pudo enviar la solicitud. Intente nuevamente o llame al 787-946-1810.",
-    footer: "Oficina legal en Bayamon, Puerto Rico."
+    footer: "Oficina legal en Bayamón, Puerto Rico."
   },
   en: {
     badge: "LAW OFFICE",
@@ -45,7 +45,7 @@ const content = {
     areas: ["Real Estate", "Inheritance", "Civil Practice", "Notary"],
     contactTitle: "Contact Information",
     address:
-      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamón, PR 00959 | P.O Box 55056 Bayamón PR 00960-4056",
     appointmentTitle: "Request an Appointment",
     appointmentText:
       "Complete this form and we will contact you to confirm your appointment.",
@@ -64,7 +64,7 @@ const content = {
     },
     success: "Request sent. We will contact you soon.",
     failure: "Could not send request. Please try again or call 787-946-1810.",
-    footer: "Law office in Bayamon, Puerto Rico."
+    footer: "Law office in Bayamón, Puerto Rico."
   }
 };
 
@@ -110,7 +110,7 @@ export default function HomePage() {
           onClick={() => setLang((prev) => (prev === "es" ? "en" : "es"))}
           aria-label="Change language"
         >
-          {lang === "es" ? "English" : "Espanol"}
+          {lang === "es" ? "English" : "Español"}
         </button>
       </div>
 
@@ -141,7 +141,8 @@ export default function HomePage() {
         <article className="card">
           <h2>{t.contactTitle}</h2>
           <p>
-            <strong>Telefono:</strong> <a href="tel:7879461810">787-946-1810</a>
+            <strong>{lang === "es" ? "Teléfono:" : "Phone:"}</strong>{" "}
+            <a href="tel:7879461810">787-946-1810</a>
           </p>
           <p>
             <strong>Email:</strong>{" "}
