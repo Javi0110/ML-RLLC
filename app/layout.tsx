@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bufete de Abogado | Lcdo. Fernando L. Melendez Lopez",
+  title: "MELENDEZ LOPEZ & ROBLES LLC",
   description:
     "Bufete de Abogado y Notaria en Bayamon, Puerto Rico. Bienes Raices, Herencias y Practica Civil."
 };

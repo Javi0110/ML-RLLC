@@ -7,14 +7,14 @@ type Lang = "es" | "en";
 const content = {
   es: {
     badge: "BUFETE DE ABOGADO",
-    title: "Lcdo. Fernando L. Melendez Lopez",
+    title: "MELENDEZ LOPEZ & ROBLES LLC",
     subtitle:
       "Abogado-Notario en Puerto Rico. Atencion clara, trato humano y procesos simples para todas las edades.",
     areaTitle: "Servicios Legales",
     areas: ["Bienes Raices", "Herencias", "Practica Civil", "Notaria"],
     contactTitle: "Informacion de Contacto",
     address:
-      "Urb. Santa Rosa Ave. Aguas Buenas 16-30 Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
     appointmentTitle: "Solicitar Cita",
     appointmentText:
       "Complete este formulario y nos comunicaremos con usted para confirmar su cita.",
@@ -38,14 +38,14 @@ const content = {
   },
   en: {
     badge: "LAW OFFICE",
-    title: "Atty. Fernando L. Melendez Lopez",
+    title: "MELENDEZ LOPEZ & ROBLES LLC",
     subtitle:
       "Attorney-Notary in Puerto Rico. Clear guidance, human service, and simple processes for every age.",
     areaTitle: "Legal Services",
     areas: ["Real Estate", "Inheritance", "Civil Practice", "Notary"],
     contactTitle: "Contact Information",
     address:
-      "Urb. Santa Rosa Ave. Aguas Buenas 16-30 Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
+      "Urb. Santa Rosa 16-30 Ave. Aguas Buenas, Bayamon, PR 00959 | P.O Box 55056 Bayamon PR 00960-4056",
     appointmentTitle: "Request an Appointment",
     appointmentText:
       "Complete this form and we will contact you to confirm your appointment.",
