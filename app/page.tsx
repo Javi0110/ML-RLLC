@@ -9,7 +9,7 @@ const content = {
     badge: "BUFETE DE ABOGADOS",
     title: "MELENDEZ LOPEZ & ROBLES LLC",
     subtitle:
-      "Abogados-Notarios en Puerto Rico. Atencion clara y procesos simples para todas las edades.",
+      "Abogados-Notarios en Puerto Rico. Litigio en casos de herencia, cobros de dinero, incumplimientos de contrato, controversias de colindancias y otros.",
     areaTitle: "Servicios Legales",
     areas: ["Bienes Raices", "Herencias", "Practica Civil", "Notaria"],
     contactTitle: "Informacion de Contacto",
