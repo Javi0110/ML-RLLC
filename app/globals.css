@@ -131,6 +131,17 @@ h2 {
   background: rgba(4, 8, 20, 0.75);
 }
 
+.langBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.langBtnIcon {
+  flex-shrink: 0;
+  display: block;
+}
+
 form {
   display: grid;
   gap: 0.7rem;

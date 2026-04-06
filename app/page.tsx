@@ -1,8 +1,54 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useId, useMemo, useState } from "react";
 
 type Lang = "es" | "en";
+
+function JusticeScalesIcon({
+  className,
+  gradId
+}: {
+  className?: string;
+  gradId: string;
+}) {
+  return (
+    <svg
+      className={className}
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <g
+        stroke={`url(#${gradId})`}
+        strokeWidth="1.65"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 20V5" />
+        <path d="M9 20h6" />
+        <path d="M5 5h14" />
+        <path d="M8 5v3l-3 7h6L11 8V5" />
+        <path d="M16 5v3l-3 7h6L19 8V5" />
+      </g>
+      <defs>
+        <linearGradient
+          id={gradId}
+          x1="3"
+          y1="3"
+          x2="21"
+          y2="21"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#7f9cff" />
+          <stop offset="1" stopColor="#57e5c1" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
 
 const content = {
   es: {
@@ -69,6 +115,7 @@ const content = {
 };
 
 export default function HomePage() {
+  const langIconGradId = useId().replace(/:/g, "");
   const [lang, setLang] = useState<Lang>("es");
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [loading, setLoading] = useState(false);
@@ -106,10 +153,12 @@ export default function HomePage() {
     <main className="page">
       <div className="wrap langToggle">
         <button
-          className="btn btnGhost"
+          type="button"
+          className="btn btnGhost langBtn"
           onClick={() => setLang((prev) => (prev === "es" ? "en" : "es"))}
           aria-label="Change language"
         >
+          <JusticeScalesIcon className="langBtnIcon" gradId={langIconGradId} />
           {lang === "es" ? "English" : "Español"}
         </button>
       </div>
