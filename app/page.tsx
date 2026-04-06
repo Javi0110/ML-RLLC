@@ -122,7 +122,7 @@ export default function HomePage() {
           <a className="btn btnPrimary" href="tel:7879461810">
             {t.quickActions.call}
           </a>
-          <a className="btn btnGhost" href="mailto:bufetemlyr@outlook.com">
+          <a className="btn btnGhost" href="mailto:fmllegal@aol.com">
             {t.quickActions.mail}
           </a>
         </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
           </p>
           <p>
             <strong>Email:</strong>{" "}
-            <a href="mailto:bufetemlyr@outlook.com">bufetemlyr@outlook.com</a>
+            <a href="mailto:fmllegal@aol.com">fmllegal@aol.com</a>
           </p>
           <p className="small">{t.address}</p>
         </article>
