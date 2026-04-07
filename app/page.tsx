@@ -4,18 +4,20 @@ import { FormEvent, useId, useMemo, useState } from "react";
 
 type Lang = "es" | "en";
 
-function JusticeScalesIcon({
+function ScalesIcon({
   className,
-  gradId
+  gradId,
+  size = 20
 }: {
   className?: string;
   gradId: string;
+  size?: number;
 }) {
   return (
     <svg
       className={className}
-      width="20"
-      height="20"
+      width={size}
+      height={size}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -116,6 +118,7 @@ const content = {
 
 export default function HomePage() {
   const langIconGradId = useId().replace(/:/g, "");
+  const heroMarkGradId = useId().replace(/:/g, "");
   const [lang, setLang] = useState<Lang>("es");
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [loading, setLoading] = useState(false);
@@ -158,20 +161,25 @@ export default function HomePage() {
           onClick={() => setLang((prev) => (prev === "es" ? "en" : "es"))}
           aria-label="Change language"
         >
-          <JusticeScalesIcon className="langBtnIcon" gradId={langIconGradId} />
+          <ScalesIcon className="langBtnIcon" gradId={langIconGradId} />
           {lang === "es" ? "English" : "Español"}
         </button>
       </div>
 
       <section className="hero wrap">
-        <span className="pill">{t.badge}</span>
+        <div className="heroLead">
+          <div className="heroMark" aria-hidden>
+            <ScalesIcon gradId={heroMarkGradId} size={46} />
+          </div>
+          <span className="pill">{t.badge}</span>
+        </div>
         <h1>{t.title}</h1>
         <p className="subtitle">{t.subtitle}</p>
         <div className="ctaRow">
           <a className="btn btnPrimary" href="tel:7879461810">
             {t.quickActions.call}
           </a>
-          <a className="btn btnGhost" href="mailto:fmllegal@aol.com">
+          <a className="btn btnGhost" href="mailto:flmllegal@aol.com">
             {t.quickActions.mail}
           </a>
         </div>
@@ -195,7 +203,7 @@ export default function HomePage() {
           </p>
           <p>
             <strong>Email:</strong>{" "}
-            <a href="mailto:fmllegal@aol.com">fmllegal@aol.com</a>
+            <a href="mailto:flmllegal@aol.com">flmllegal@aol.com</a>
           </p>
           <p className="small">{t.address}</p>
         </article>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="8" fill="#0f1930"/>
+  <g
+    stroke="url(#favicon-grad)"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M16 26V9"/>
+    <path d="M12 26h8"/>
+    <path d="M8 9h16"/>
+    <path d="M11 9v3l-3 7h6l-3-7V9"/>
+    <path d="M21 9v3l-3 7h6l-3-7V9"/>
+  </g>
+  <defs>
+    <linearGradient
+      id="favicon-grad"
+      x1="6"
+      y1="6"
+      x2="26"
+      y2="26"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#7f9cff"/>
+      <stop offset="1" stop-color="#57e5c1"/>
+    </linearGradient>
+  </defs>
+</svg>
