@@ -1,13 +1,15 @@
-import { existsSync, unlinkSync } from "node:fs";
+import { rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const trace = path.join(root, ".next", "trace");
-if (existsSync(trace)) {
-  try {
-    unlinkSync(trace);
-  } catch {
-    /* OneDrive/antivirus may hold the file; build may still succeed */
+
+try {
+  await rm(trace, { force: true, recursive: true });
+  console.log(`removed: ${trace}`);
+} catch (err) {
+  if (err && err.code !== "ENOENT") {
+    console.error(`error removing ${trace}:`, err);
   }
 }
